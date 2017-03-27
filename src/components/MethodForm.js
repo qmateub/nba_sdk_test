@@ -51,7 +51,7 @@ class MethodForm extends React.Component {
             aria-haspopup="true"
             aria-expanded="false"
           >
-          {field.display}
+          {this.state.params[field.name] || field.display}
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
           {field.values.map( value => {
@@ -60,7 +60,7 @@ class MethodForm extends React.Component {
                 className="dropdown-item"
                 href="#"
                 key={value.value}
-                onClick={this.handleClickComponent.bind(this, field.name, value.value)}>
+                onClick={this.handleClickComponent.bind(this, field.name, value.display)}>
               {value.display}
               </a>
             )
